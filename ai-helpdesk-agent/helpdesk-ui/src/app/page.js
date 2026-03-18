@@ -21,7 +21,8 @@ export default function Home() {
 
     async function createConversation() {
 
-      const res = await fetch("http://localhost:3000/api/conversation", {
+
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/conversation`, {
         method: "POST"
       });
 
@@ -49,8 +50,8 @@ export default function Home() {
 
     // show user message immediately
     setMessages(prev => [...prev, userMessage]);
-
-    const res = await fetch("http://localhost:3000/api/chat", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chat`,
+    {
 
       method: "POST",
 
